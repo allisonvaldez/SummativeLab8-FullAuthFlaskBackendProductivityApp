@@ -2,7 +2,8 @@
 
 # Import what necessary to ensure functionality of app
 import unittest
-from config import app, db
+from app import app
+from config import db
 
 # Create a class for unit testing
 class TestApp(unittest.TestCase):
