@@ -30,7 +30,7 @@ with app.app_context():
     for fake_user in range(5):
 
         # Create a random username for fake users
-        user = User(username = fake.user_name())
+        user = User(username=fake.user_name())
 
         # Create a password for all fake users
         user.password_hash = "password123"
@@ -40,7 +40,7 @@ with app.app_context():
         users.append(user)
 
     # Make sure to commit because notes needs users to be populated before doing its part
-    db.commit
+    db.session.commit()
 
     # 3. CREATE NOTES: display message to the user
     print("--- Creating Notes ---")
@@ -49,22 +49,19 @@ with app.app_context():
     for fake_user in users:
         for fake_notes in range(3):
             note = Note(
-                # Create a random 4 word title 
-                title = fake.sentence(nb_words = 4)
+                # Create a random title 
+                title=fake.sentence(),
                 
                 # Create random content
-                content = fake.paragraph(nb_sentences = 3)
+                content=fake.paragraph(),
 
                 # Link the notes to the fake users 
-                user_id = user.id 
+                user_id=fake_user.id
             )
 
-        # Add this to the session db 
-        db.session.add(note)
+            # Add this to the session db 
+            db.session.add(note)
 
     # Make sure to commit notes to db and display message to the user
     db.session.commit()
     print("Done seeding!")
-
-
-
