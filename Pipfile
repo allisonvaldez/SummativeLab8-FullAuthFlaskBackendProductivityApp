@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "==2.2.2"              # The web framework
+flask-sqlalchemy = "==3.0.3"   # SQLAlchemy integration for Flask
+Werkzeug = "==2.2.2"           # WSGI utilities Flask depends on
+marshmallow = "==3.20.1"       # JSON serialization
+faker = "==15.3.2"             # Fake data generation for seeding
+flask-migrate = "==4.0.0"      # Database migration commands
+flask-restful = "==0.3.9"      # RESTful route helpers
+importlib-metadata = "==6.0.0" # Required by Flask 2.2
+importlib-resources = "==5.10.0" # Required by Flask 2.2
+flask-bcrypt = "==1.0.1"       # Password hashing
+
+[dev-packages]
+pytest = "==7.2.0"             # Testing framework
+
+[requires]
+python_version = "3.8"         # Minimum Python version
